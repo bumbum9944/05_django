@@ -11,7 +11,6 @@ def create(request):
     content = request.GET.get('content')
     question = Question(user=user, title=title, content=content)
     question.save()
-
     return redirect('/questions/')
 
 def index(request):
