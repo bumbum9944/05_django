@@ -2,17 +2,22 @@
 
 {% block body %}
 {% for question in questions %}
-<h1>{{question.title}}</h1>
-<p>{{question.user}}</p>
-<p>{{question.content}}</p>
-<form action="/questions/{{question.id}}/answers/create/">
-    <input type="text" name="content">
-    <input type="submit">
-</form>
-{% for answer in question.answer_set.all %}
-<p>{{answer.content}}</p>
-{% endfor %}
-<hr>
+<div class="d-flex align-items-center flex-column mt-5">
+    <div>
+        <h1>{{question.title}}</h1>
+    </div>
+    <p>{{question.user}}</p>
+    <p>{{question.content}}</p>
+    <form action="/questions/{{question.id}}/answers/create/">
+        <input type="text" name="content">
+        <input type="submit">
+    </form>
+    {% for answer in question.answer_set.all %}
+    <p>{{answer.content}}</p>
+    {% endfor %}
+    <hr>
 
-{% endfor %}
+    {% endfor %}
+</div>
+
 {% endblock %}
